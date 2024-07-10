@@ -3,6 +3,7 @@ import { ZodTypeProvider } from "fastify-type-provider-zod";
 import z from "zod";
 import { prisma } from "../lib/prisma";
 import { ClientError } from "../errors/client-error";
+import { env } from "../../env";
 
 export async function confirmParticipants(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().get(
@@ -28,9 +29,7 @@ export async function confirmParticipants(app: FastifyInstance) {
       }
 
       if (participant.is_confirmed) {
-        return rep.redirect(
-          `http//localhost:3000/trips/${participant.trip_id}`
-        );
+        return rep.redirect(`${env.WEB_BASE_URL}/trips/${participant.trip_id}`);
       }
 
       await prisma.participant.update({
@@ -38,7 +37,7 @@ export async function confirmParticipants(app: FastifyInstance) {
         data: { is_confirmed: true },
       });
 
-      return rep.redirect(`http//localhost:3000/trips/${participant.trip_id}`);
+      return rep.redirect(`${env.WEB_BASE_URL}/trips/${participant.trip_id}`);
     }
   );
 }
