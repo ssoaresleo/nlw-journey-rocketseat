@@ -46,7 +46,6 @@ Configure o Prisma para conectar-se ao seu banco de dados. Atualize o arquivo `.
 
 Execute a aplicação em modo de desenvolvimento:
 
-```bash
 npm run dev
 # ou
 yarn dev
