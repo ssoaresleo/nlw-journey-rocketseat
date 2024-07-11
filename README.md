@@ -17,7 +17,7 @@ Este é um gerenciador de viagens desenvolvido em Node.js utilizando o framework
 ## Funcionalidades
 
 - Criar uma nova viagem.
-- Listar detalhes da viagens.
+- Listar detalhes de uma viagem.
 - Adicionar participantes.
 - Adicionar atividades.
 - Listar detalhes de um participante.
