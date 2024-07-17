@@ -47,6 +47,6 @@ app.get("/hello", (req, res) => {
   res.send("Hello, World!");
 });
 
-app.listen({ port: env.PORT }).then(() => {
+app.listen({ host: "0.0.0.0", port: env.PORT }).then(() => {
   console.log("Server running!");
 });
