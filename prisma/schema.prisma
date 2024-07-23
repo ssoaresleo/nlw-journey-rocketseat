@@ -1,5 +1,5 @@
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
 }
 
 datasource db {
@@ -16,7 +16,7 @@ model Trip {
   created_at   DateTime      @default(now())
   participants Participant[]
   activities   Activity[]
-  links         Link[]
+  links        Link[]
 
   @@map("trips")
 }
@@ -38,7 +38,7 @@ model Participant {
 model Activity {
   id String @id @default(uuid())
 
-  title      String
+  title     String
   occurs_at DateTime
 
   tripe   Trip   @relation(fields: [trip_id], references: [id])
