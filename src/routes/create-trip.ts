@@ -3,9 +3,9 @@ import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
 import { getMailClient } from "../lib/mail";
 import { dayjs } from "../lib/dayjs";
+import { makeCreateTripUseCase } from "../factories/makeCreateTripUseCase";
 import nodemailer from "nodemailer";
 import { env } from "../../env";
-import { makeCreateTripUseCase } from "../factories/makeCreateTripUseCase";
 
 export async function createTrip(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().post(
