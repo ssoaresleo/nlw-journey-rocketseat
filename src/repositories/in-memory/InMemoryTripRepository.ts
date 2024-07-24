@@ -1,17 +1,17 @@
 import { randomUUID } from "crypto";
 import { ICreateTripResponseDTO } from "../../useCases/createTrip/ICreateTripResponseDTO";
 import { ITripRepository } from "../interfaces/ITripRepository";
-import { Trip as TripProps } from "../dtos/getTripsDTO";
-import { Trip } from "../../domain/trip";
+import { Trip } from "../../domain/entities/trip";
+import { ICreateTripDTO } from "../../useCases/createTrip/ICreateTripDTO";
 
 export class InMemoryTripRepository implements ITripRepository {
-  public items: TripProps[] = [];
-  async create(data: Trip): Promise<ICreateTripResponseDTO> {
+  public items: Trip[] = [];
+  async create(data: ICreateTripDTO): Promise<ICreateTripResponseDTO> {
     const tripId = randomUUID();
     const ownerId = randomUUID();
     const participantId = randomUUID();
 
-    const trip: TripProps = {
+    const trip: Trip = {
       id: tripId,
       destination: data.destination,
       startsAt: data.starts_at,

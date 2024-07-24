@@ -1,4 +1,4 @@
-import { Trip } from "../../domain/trip";
+import { Trip } from "../../domain/entities/trip";
 import { InvalidDate } from "../../errors/invalid-date";
 import { ITripRepository } from "../../repositories/interfaces/ITripRepository";
 import {
@@ -17,10 +17,8 @@ export class CreateTripUseCase {
     if (!validateTripEndDate(data.ends_at, data.ends_at)) {
       throw new InvalidDate("Invalid trip end date");
     }
-    
-    const trip = new Trip(data);
 
-    const tripId = await this.tripRepository.create(trip);
+    const tripId = await this.tripRepository.create(data);
 
     return tripId;
   }

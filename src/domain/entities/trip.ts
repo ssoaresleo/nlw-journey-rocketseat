@@ -1,3 +1,5 @@
+import { Participant } from "./participant";
+
 export type Trip = {
   id: string;
   destination: string;
@@ -6,13 +8,4 @@ export type Trip = {
   isConfirmed: boolean;
   participants: Participant[];
   createdAt: Date;
-};
-
-export type Participant = {
-  id: string;
-  name?: string | null;
-  email: string;
-  isConfirmed?: boolean;
-  isOwner?: boolean;
-  tripId?: string;
 };

@@ -1,5 +1,6 @@
-import { Trip } from "../../domain/trip";
+import { Trip } from "../../domain/entities/trip";
 import { prisma } from "../../lib/prisma";
+import { ICreateTripDTO } from "../../useCases/createTrip/ICreateTripDTO";
 import { ICreateTripResponseDTO } from "../../useCases/createTrip/ICreateTripResponseDTO";
 import { ITripRepository } from "../interfaces/ITripRepository";
 
@@ -11,7 +12,7 @@ export class PrismaTripRepository implements ITripRepository {
     owner_name,
     owner_email,
     emails_to_invite,
-  }: Trip): Promise<ICreateTripResponseDTO> {
+  }: ICreateTripDTO): Promise<ICreateTripResponseDTO> {
     const trip = await prisma.trip.create({
       data: {
         destination,
